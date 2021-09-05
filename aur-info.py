@@ -8,13 +8,21 @@ from bs4 import BeautifulSoup as bs
 
 if __name__ == '__main__':
     av = sys.argv[1:]
-    opts, a = getopt.getopt(av, "p:", ['pkg='])
+    opts, a = getopt.getopt(av, "hp:", ['help','pkg='])
 
     args = {}
     for opt in opts:
+        if opt[0] in ['-h', '--help']:
+            args.update({'help':True})
         if opt[0] in ['-p', '--pkg']:
             args.update({'pkg':opt[1]})
 
+    if 'help' in args:
+        print('Usage: aur-info.py -p <exact_package_name>')
+        sys.exit(0)
+
+    if 'pkg' not in args:
+        raise Exception('Please specify a package name. It should be an exact match. Use aur-search if needed.')
     res = r.get('https://aur.archlinux.org/packages/{}'.format(args['pkg']))
 
     if res.ok:
@@ -40,4 +48,4 @@ if __name__ == '__main__':
         print(git_url)
         #os.system('git clone {}'.format(git_url))
     else:
-        print('nok')
+        raise Exception("Package not found. Please check to see if there exists a match.")
