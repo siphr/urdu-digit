@@ -1,5 +1,5 @@
-#AUR-INFO
-
+AUR-INFO
+--------
 Helper program to show package info for a package from Arch User Repository.
 
 #Usage
