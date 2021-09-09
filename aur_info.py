@@ -13,8 +13,8 @@ def get_info(pkg_name):
     pkg['version']=b.body.select('div[id=pkgdetails]')[0].h2.text.split()[3]
     pkg['description']=b.body.table.findChildren("tr")[2].td.text
     pkg['git_url']=b.body.table.findChildren("tr")[0].td.a.text
-    pkg['submitted']=b.body.table.findChildren("tr")[11].td.text
-    pkg['updated']=b.body.table.findChildren("tr")[12].td.text
+    pkg['submitted']=b.body.table.findChildren("tr")[-2].td.text
+    pkg['updated']=b.body.table.findChildren("tr")[-1].td.text
     print(pkg)
     return pkg
 
@@ -42,19 +42,21 @@ if __name__ == '__main__':
 
     pkg = get_info(args['pkg'])
     if pkg:
-        print('\nName: {} / Version: {}'.format(pkg['name'], pkg['version']))
-
-        print('\nDescription:')
-        print('------------')
-        print(pkg['description'])
-        print('\nSubmitted:')
-        print('----------')
-        print(pkg['submitted'])
-        print('Updated:')
-        print('---------')
-        print(pkg['updated'])
-        print('\nRepository:')
-        print('-----------')
-        print(pkg['git_url'])
+        print("""
+            \n\nName: {}
+Version: {}
+Description: {}
+Submitted: {}
+Updated: {}
+Git Clone URL: {}
+\n
+        """.format(
+            pkg['name'],
+            pkg['version'],
+        pkg['description'],
+        pkg['submitted'],
+        pkg['updated'],
+        pkg['git_url']
+        ))
     else:
         raise Exception("Package not found. Please check to see if there exists a match.")

@@ -1,7 +1,7 @@
 # Maintainer: siphr <archlinux@techtum.dev>
 pkgname=aur-info
 pkgver=0.2
-pkgrel=2
+pkgrel=1
 pkgdesc="Retrieve package info for an aur package."
 depends=(python)
 arch=(x86_64)
