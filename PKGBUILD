@@ -5,17 +5,17 @@ pkgrel=1
 pkgdesc="Retrieve package info for an aur package."
 depends=(python)
 arch=(x86_64)
-source=("https://github.com/siphr/aur-info.git")
+source=("https://github.com/siphr/urdu.git")
 license=('MIT')
 
 build() {
-    pip install aur-info -U
+    pip install urdu -U
     pip install bs4 -U
     
     echo "echo `date`" > aur-info
-    echo "python -m aur_info \$@" >> aur-info
+    echo "python -m urdu \$@" >> aur-info
 
-    chmod +x $srcdir/aur-info
+    chmod +x $srcdir/urdu
 }
 
 package() {
