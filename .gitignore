@@ -1,3 +1,7 @@
-pkg/urdu-sigit
+src/*
+pkg/*
+dist
 urdu-sigit-0.2-1-x86_64.pkg.tar.zst
 urdu.git
+*egg*
+__pycache__
