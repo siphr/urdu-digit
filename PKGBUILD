@@ -1,5 +1,5 @@
 # Maintainer: siphr <archlinux@techtum.dev>
-pkgname=aur-info
+pkgname=urdu-sigit
 pkgver=0.2
 pkgrel=1
 pkgdesc="Retrieve package info for an aur package."
@@ -12,15 +12,15 @@ build() {
     pip install urdu -U
     pip install bs4 -U
     
-    echo "echo `date`" > aur-info
-    echo "python -m urdu \$@" >> aur-info
+    echo "echo `date`" > urdu-digit 
+    echo "python -m urdu.digit \$@" >> urdu-digit
 
-    chmod +x $srcdir/urdu
+    chmod +x $srcdir/urdu-digit
 }
 
 package() {
     mkdir -p $pkgdir/usr/bin
 #    echo $srcdir
-    cp "$srcdir/aur-info" "$pkgdir/usr/bin/aur-info"
+    cp "$srcdir/urdu-digit" "$pkgdir/usr/bin/urdu-digit"
     echo 'Finsihed setting up aur-info.'
 }
