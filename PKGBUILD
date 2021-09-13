@@ -13,7 +13,7 @@ build() {
     pip install bs4 -U
     
     echo "echo `date`" > urdu-digit 
-    echo "python -m urdu-digit.digit \$@" >> urdu-digit
+    echo "python -m urdu_digit \$@" >> urdu-digit
 
     chmod +x $srcdir/urdu-digit
 }
