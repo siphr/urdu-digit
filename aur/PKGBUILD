@@ -26,3 +26,4 @@ package() {
     cp "$srcdir/urdu-digit" "$pkgdir/usr/bin/urdu-digit"
     echo 'Finsihed setting up urdu-digit.'
 }
+md5sums=('50d246218640141df667a43be837118e')
