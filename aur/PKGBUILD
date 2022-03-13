@@ -28,6 +28,7 @@ package() {
     cp urdu-digit "$pkgdir/usr/bin/urdu-digit"
     chmod +x $pkgdir/usr/bin/urdu-digit
 
+    install -Dm644 ../LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
     echo 'Finished setting up urdu-digit.'
 }
 md5sums=('a1a1956fa68c89aced0d19784c5ab7f2')
